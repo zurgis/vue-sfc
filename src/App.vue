@@ -2,11 +2,22 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import HelloWorld from './components/HelloWorld.vue'
+import Navigation from './components/Navigation.vue'
+
+const routes = [
+  { label: 'Home', name: 'HelloWorld' },
+]
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+
+    <Navigation :routes="routes" />
+
+    <router-view></router-view>
+  </div>
 </template>
 
 <style>
