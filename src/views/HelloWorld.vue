@@ -10,4 +10,7 @@ import HelloWorld from '../components/HelloWorld.vue'
 </template>
 
 <style lang="scss" scoped>
+div {
+  margin-top: 5%;
+}
 </style>
