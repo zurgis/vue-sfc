@@ -1,11 +1,11 @@
 <script setup lang="ts">
 defineProps<{
   routes: Array<{
-    label: String,
-    name: String,
+    label: string
+    name: string
     params?: Array<{
-      name: String,
-      value: String
+      name: string
+      value: string
     }>
   }>
 }>()

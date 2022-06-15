@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  contents: Array<{
+  footers?: Array<{
     rowspan?: number
     name: string
   }>[]
@@ -8,13 +8,13 @@ defineProps<{
 </script>
 
 <template>
-  <tbody>
-    <tr v-for="items in contents">
+  <tfoot>
+    <tr v-for="items in footers">
       <td :rowspan="item.rowspan" v-for="item in items">
         {{ item.name }}
       </td>
     </tr>
-  </tbody>
+  </tfoot>
 </template>
 
 <style lang="scss" scoped>

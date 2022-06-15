@@ -1,31 +1,32 @@
 <script setup lang="ts">
 import TableHeaderVue from './TableHeader.vue'
-import TableBodyVue from './TableBody.vue';
+import TableBodyVue from './TableBody.vue'
+import TableFooter from './TableFooter.vue'
 
-const headers = [
-  [
-    { colspan: 2, name: 'Column1' },
-    { name: 'Column2' },
-  ],
-  [
-    { name: 'Content1' },
-    { name: 'Content2' },
-    { name: 'Content3' }
-  ],
-]
+defineProps<{
+  headers?: Array<{
+    colspan?: number
+    name: string
+  }>[],
 
-const contents = [
-  { name: 'Entry1' },
-  { name: 'Entry2' }
-]
+  contents: Array<{
+    rowspan?: number
+    name: string
+  }>[],
+
+  footers?: Array<{
+    rowspan?: number
+    name: string
+  }>[]
+}>()
 </script>
 
 <template>
   <div>
     <table>
       <TableHeaderVue :headers=headers />
-
       <TableBodyVue :contents=contents />
+      <TableFooter :footers=footers />
     </table>
   </div>
 </template>
