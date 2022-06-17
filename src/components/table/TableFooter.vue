@@ -2,7 +2,7 @@
 defineProps<{
   footers?: Array<{
     rowspan?: number
-    name: string
+    value: string
   }>[]
 }>()
 </script>
@@ -11,7 +11,7 @@ defineProps<{
   <tfoot>
     <tr v-for="items in footers">
       <td :rowspan="item.rowspan" v-for="item in items">
-        {{ item.name }}
+        {{ item.value }}
       </td>
     </tr>
   </tfoot>

@@ -6,26 +6,36 @@ import TableFooter from './TableFooter.vue'
 defineProps<{
   headers?: Array<{
     colspan?: number
-    name: string
+    value: string
   }>[],
 
   contents: Array<{
     rowspan?: number
-    name: string
+    identifier: number | string
+    value: string
+    isActive?: boolean
   }>[],
 
   footers?: Array<{
     rowspan?: number
-    name: string
+    value: string
   }>[]
 }>()
+
+const emit = defineEmits<{
+  (event: 'changeItemBody', identifier: number | string, value: string): void
+}>()
+
+function onChangeItemBody(identifier: number | string, value: string) {
+  emit('changeItemBody', identifier, value)
+}
 </script>
 
 <template>
   <div>
     <table>
       <TableHeaderVue :headers=headers />
-      <TableBodyVue :contents=contents />
+      <TableBodyVue :contents=contents @change="onChangeItemBody" />
       <TableFooter :footers=footers />
     </table>
   </div>

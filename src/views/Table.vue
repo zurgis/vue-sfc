@@ -1,49 +1,62 @@
 <script setup lang="ts">
-import TableVue from '../components/table/Table.vue';
+import TableVue from '../components/table/Table.vue'
 
 const headers = [
   [
-    { colspan: 4, name: 'Column1' },
+    { colspan: 4, value: 'Column1' },
   ],
   [
-    { name: 'Content1' },
-    { name: 'Content2' },
-    { name: 'Content3' },
-    { name: 'Content4' }
-  ],
+    { value: 'Content1' },
+    { value: 'Content2' },
+    { value: 'Content3' },
+    { value: 'Content4' }
+  ]
 ]
 
 const contents = [
   [
-    { name: 'Entry1' },
-    { name: 'Entry2' },
-    { rowspan: 2, name: 'Entry3' },
-    { name: 'Entry4' }
+    { identifier: 1, value: 'Entry1' },
+    { identifier: 2, value: 'Entry2', isActive: true },
+    { identifier: 3, value: 'Entry3' },
+    { identifier: 4, value: 'Entry4' }
   ],
   [
-    { name: 'Entry1' },
-    { name: 'Entry2' },
-    { name: 'Entry4' }
-  ],
+    { identifier: 5, value: 'Entry1' },
+    { identifier: 6, value: 'Entry2', isActive: true},
+    { identifier: 7, value: 'Entry3' },
+    { identifier: 8, value: 'Entry4' }
+  ]
 ]
 
 const footers = [
   [
-    { name: 'Footer1' },
-    { name: 'Footer2' },
-    { rowspan: 2, name: 'Footer3' },
-    { name: 'Footer4' }
+    { value: 'Footer1' },
+    { value: 'Footer2' },
+    { rowspan: 2, value: 'Footer3' },
+    { value: 'Footer4' }
   ],
   [
-    { name: 'Footer1' },
-    { name: 'Footer2' },
-    { name: 'Footer4' }
+    { value: 'Footer1' },
+    { value: 'Footer2' },
+    { value: 'Footer4' }
   ]
 ]
+
+function onValueChange(identifier: number | string, value: string) {
+  alert(`
+    identifier: ${ identifier } 
+    value: ${ value }
+  `)
+}
 </script>
 
 <template>
-  <TableVue :headers="headers" :contents="contents" :footers="footers" />
+  <TableVue 
+    :headers="headers" 
+    :contents="contents" 
+    :footers="footers" 
+    @change-item-body="onValueChange"
+  />
 </template>
 
 <style lang="scss">

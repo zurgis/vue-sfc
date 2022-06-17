@@ -1,8 +1,8 @@
 <script setup lang="ts">
 defineProps<{
-  headers: Array<{
+  headers?: Array<{
     colspan?: number
-    name: string
+    value: string
   }>[]
 }>()
 </script>
@@ -11,7 +11,7 @@ defineProps<{
   <thead >
     <tr v-for="header in headers">
       <th :colspan="item.colspan" v-for="item in header">
-        {{ item.name }}
+        {{ item.value }}
       </th>
     </tr>
   </thead>
