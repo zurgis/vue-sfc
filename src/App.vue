@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import NavigationVue from './components/Navigation.vue'
+import VNavigation from './components/VNavigation.vue'
 import { routes } from './router/routerNavigation'
 </script>
 
@@ -9,11 +9,11 @@ import { routes } from './router/routerNavigation'
   <div id="app">
     <aside>
       <div class="sidebar-header">
-        <span>Single File Components</span>
+        Single File Components
       </div>
 
       <div class="sidebar-content">
-        <NavigationVue :routes="routes" />
+        <VNavigation :routes="routes" />
       </div>
     </aside>
 
@@ -64,8 +64,10 @@ aside {
 
 main {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   position: absolute;
-  margin: 0;
+  margin: 60px 0;
   padding: 0;
   left: 160px;
   top: 0;

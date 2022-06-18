@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <thead >
+  <thead>
     <tr v-for="header in headers">
       <th :colspan="item.colspan" v-for="item in header">
         {{ item.value }}

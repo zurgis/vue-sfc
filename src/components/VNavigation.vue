@@ -12,9 +12,9 @@ defineProps<{
 </script>
 
 <template>
-  <nav>
-    <ul>
-      <li v-for="route in routes">
+  <nav class="nav">
+    <ul class="nav-ul">
+      <li class="nav-li" v-for="route in routes">
         <router-link 
           class="nav-link"
           :to="{
@@ -30,7 +30,7 @@ defineProps<{
 </template>
 
 <style lang="scss" scoped>
-ul {
+.nav-ul {
   list-style-type: none;
   margin: 0;
   padding: 0;

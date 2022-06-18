@@ -2,14 +2,21 @@
 defineProps<{
   contents: Array<{
     rowspan?: number
+    key?: string
     identifier: number | string
     value: string
+    type?: string
     isActive?: boolean
   }>[]
 }>()
 
 defineEmits<{
-  (event: 'change', identifier: number | string, value: string): void
+  (
+    event: 'change', 
+    identifier: number | string, 
+    value: string, 
+    key?: string
+  ): void
 }>()
 </script>
 
@@ -20,12 +27,13 @@ defineEmits<{
         <td :rowspan="item.rowspan">
           <div v-if="item.isActive" class="item-body">
             <input 
-              type="text" 
+              :type="item.type ? item.type : 'text'" 
               :value="item.value" 
               @change="$emit(
                 'change', 
                 item.identifier,
-                ($event.target as HTMLInputElement).value
+                ($event.target as HTMLInputElement).value,
+                item.key
               )" 
             />
           </div>

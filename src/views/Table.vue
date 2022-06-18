@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TableVue from '../components/table/Table.vue'
+import VTable from '../components/VTable/VTable.vue'
 
 const headers = [
   [
@@ -16,7 +16,7 @@ const headers = [
 const contents = [
   [
     { identifier: 1, value: 'Entry1' },
-    { identifier: 2, value: 'Entry2', isActive: true },
+    { key: 'Content2', identifier: 2, value: 'Entry2', isActive: true },
     { identifier: 3, value: 'Entry3' },
     { identifier: 4, value: 'Entry4' }
   ],
@@ -42,21 +42,31 @@ const footers = [
   ]
 ]
 
-function onValueChange(identifier: number | string, value: string) {
-  alert(`
-    identifier: ${ identifier } 
-    value: ${ value }
-  `)
+function onValueChange(identifier: number | string, value: string, key?: string) {
+  if (key === 'Content2') {
+    alert(`
+      identifier: ${ identifier } 
+      value: ${ value }
+      key: ${ key }
+    `)
+  } else {
+    alert(`
+      identifier: ${ identifier } 
+      value: ${ value }
+    `)
+  }
 }
 </script>
 
 <template>
-  <TableVue 
-    :headers="headers" 
-    :contents="contents" 
-    :footers="footers" 
-    @change-item-body="onValueChange"
-  />
+  <div>
+    <VTable 
+      :headers="headers" 
+      :contents="contents" 
+      :footers="footers" 
+      @change-item-body="onValueChange"
+    />
+  </div>
 </template>
 
 <style lang="scss">
