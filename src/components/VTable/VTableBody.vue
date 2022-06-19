@@ -1,23 +1,27 @@
 <script setup lang="ts">
+import VInput from '../VInput.vue'
+
 defineProps<{
   contents: Array<{
     rowspan?: number
-    key?: string
-    identifier: number | string
     value: string
-    type?: string
     isActive?: boolean
+    editor?: {
+      identifier: number | string
+      type: string
+      title?: string
+      placeholder?: string
+    }
   }>[]
 }>()
 
-defineEmits<{
-  (
-    event: 'change', 
-    identifier: number | string, 
-    value: string, 
-    key?: string
-  ): void
+const emit = defineEmits<{
+  (event: 'change', ...args: any[]): void
 }>()
+
+function onChangeItemBody(...args: any[]) {
+  emit('change', ...args)
+}
 </script>
 
 <template>
@@ -25,20 +29,19 @@ defineEmits<{
     <tr v-for="items in contents">
       <template v-for="item in items">
         <td :rowspan="item.rowspan">
-          <div v-if="item.isActive" class="item-body">
-            <input 
-              :type="item.type ? item.type : 'text'" 
-              :value="item.value" 
-              @change="$emit(
-                'change', 
-                item.identifier,
-                ($event.target as HTMLInputElement).value,
-                item.key
-              )" 
-            />
+          <div v-if="item.isActive && item.editor">
+            <template v-if="item.editor.type === 'text'">
+              <VInput
+                :title="item.editor.title"
+                :identifier="item.editor.identifier"
+                :placeholder="item.editor.placeholder"
+                :value="item.value"
+                @change="onChangeItemBody"
+              />
+            </template>
           </div>
           
-          <div v-else class="item-body">
+          <div v-else>
             {{ item.value }}
           </div>
         </td>
@@ -48,19 +51,4 @@ defineEmits<{
 </template>
 
 <style lang="scss" scoped>
-.item-body {
-  input[type=text] {
-    border: none;
-    text-align: center;
-  }
-
-  input[type=text]:hover {
-    background-color: #c5c5c5;
-  }
-
-  input[type=text]:focus {
-    outline: none;
-    border: 2px solid #c5c5c5;
-  }
-}
 </style>

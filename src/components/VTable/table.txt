@@ -1,0 +1,23 @@
+defineProps<{
+  contents: Array<{
+    rowspan?: number
+    value: string
+    isActive?: boolean
+    editor?: {
+      identifier: number | string
+      type: string
+      title?: string
+      placeholder?: string
+    }
+  }>[]
+}>()
+
+contents - массив данных тела таблицы.
+rowspan - количество занимаемых столбцов.
+value - значение поля таблицы.
+isActive - активное поле или нет.
+editor - объект описывающий поле-редактор.
+identifier - идентификатор для редактора, обязательное значение, он же id.
+type - тип поля-редактора.
+title - название поля. Используется для сопоставление вызываемой функции.
+placeholder - плейсхолдер для полей, которые имеют данное свойство.

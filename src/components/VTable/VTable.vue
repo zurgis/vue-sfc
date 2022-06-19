@@ -11,12 +11,15 @@ defineProps<{
 
   contents: Array<{
     rowspan?: number
-    key?: string
-    identifier: number | string
     value: string
-    type?: string
     isActive?: boolean
-  }>[],
+    editor?: {
+      identifier: number | string
+      type: string
+      title?: string
+      placeholder?: string
+    }
+  }>[]
 
   footers?: Array<{
     rowspan?: number
@@ -25,16 +28,11 @@ defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (
-    event: 'changeItemBody', 
-    identifier: number | string, 
-    value: string, 
-    key?: string
-  ): void
+  (event: 'changeItemBody', ...args: any[]): void
 }>()
 
-function onChangeItemBody(identifier: number | string, value: string, key?: string) {
-  emit('changeItemBody', identifier, value, key)
+function onChangeItemBody(...args: any[]) {
+  emit('changeItemBody', ...args)
 }
 </script>
 

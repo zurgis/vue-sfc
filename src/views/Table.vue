@@ -16,13 +16,20 @@ const headers = [
 const contents = [
   [
     { identifier: 1, value: 'Entry1' },
-    { key: 'Content2', identifier: 2, value: 'Entry2', isActive: true },
+    { value: 'Entry2', 
+      isActive: true, 
+      editor: { 
+        identifier: 2, 
+        type: 'text', 
+        title: 'Content2' 
+      } 
+    },
     { identifier: 3, value: 'Entry3' },
     { identifier: 4, value: 'Entry4' }
   ],
   [
     { identifier: 5, value: 'Entry1' },
-    { identifier: 6, value: 'Entry2', isActive: true},
+    { value: 'Entry2', isActive: true, editor: { identifier: 6, type: 'text' } },
     { identifier: 7, value: 'Entry3' },
     { identifier: 8, value: 'Entry4' }
   ]
@@ -42,12 +49,12 @@ const footers = [
   ]
 ]
 
-function onValueChange(identifier: number | string, value: string, key?: string) {
-  if (key === 'Content2') {
+function onValueChange(identifier: number | string, value: string, title?: string) {
+  if (title === 'Content2') {
     alert(`
       identifier: ${ identifier } 
       value: ${ value }
-      key: ${ key }
+      title: ${ title }
     `)
   } else {
     alert(`
