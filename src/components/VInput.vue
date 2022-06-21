@@ -35,14 +35,14 @@ defineEmits<{
 .input-text {
   border: none;
   text-align: center;
-}
 
-.input-text:hover {
-  background-color: #c5c5c5;
-}
+  &:hover {
+    background-color: #c5c5c5;
+  }
 
-.input-text:focus {
-  outline: none;
-  border: 2px solid #c5c5c5;
+  &:focus {
+    outline: none;
+    border: 2px solid #c5c5c5;
+  }
 }
 </style>
