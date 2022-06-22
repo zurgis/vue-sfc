@@ -5,16 +5,16 @@ import { useNotificationStore } from '../components/VNotification/notification'
 function showSuccess() {
   useNotificationStore().addNotification({
     type: 'success', 
-    duration: 3000, 
+    //duration: 5000, 
     title: 'Success', 
-    message: 'Success Notification' 
+    message: 'Success Notification'
   })
 }
 
 function showWarning() {
   useNotificationStore().addNotification({
     type: 'warning', 
-    duration: 3000, 
+    duration: 5000, 
     title: 'Warning', 
     message: 'Warning Notification' 
   })
@@ -23,7 +23,7 @@ function showWarning() {
 function showError() {
   useNotificationStore().addNotification({
     type: 'error', 
-    duration: 3000, 
+    duration: 5000, 
     title: 'Error', 
     message: 'Error Notification' 
   })
@@ -31,7 +31,7 @@ function showError() {
 </script>
 
 <template>
-  <div>
+  <div class="notification">
     <VNotification />
   </div>
   
@@ -43,11 +43,22 @@ function showError() {
 </template>
 
 <style lang="scss">
+.notification {
+  >.notification-wrapper {
+    top: 50px;
+    left: calc(100% - 420px);
+  }
+}
+
 .notification-buttons {
   button {
     display: block;
-    margin: 10px;
+    margin-top: 10px;
     width: 100px;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 }
 </style>

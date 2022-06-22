@@ -10,7 +10,7 @@ defineProps<{
 <template>
   <tfoot>
     <tr v-for="items in footers">
-      <td :rowspan="item.rowspan" v-for="item in items">
+      <td v-for="item in items" :rowspan="item.rowspan">
         {{ item.value }}
       </td>
     </tr>

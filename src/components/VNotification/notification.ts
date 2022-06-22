@@ -26,17 +26,22 @@ export const useNotificationStore = defineStore('notification', {
 
     addNotification(item: Notification) {
       item.id = this.id
+      item.duration = item.duration || 3000
+
+      if (this.items.length === 6) {
+        this.removeNotification(this.items[0])
+      }
+
       this.items.push(item)
-      this.timeoutNotification(item)
+      this.notificationDuration(item)
       this.increaseId()
     },
 
     removeNotification(item: Notification) {
-      const index = this.items.findIndex(notification => notification.id === item.id)
-      this.items.splice(index, 1)
+      this.items = this.items.filter(notification => notification.id !== item.id)
     },
 
-    timeoutNotification(item: Notification) {
+    notificationDuration(item: Notification) {
       setTimeout(() => this.removeNotification(item), item.duration)
     }
   }

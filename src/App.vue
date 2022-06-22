@@ -72,7 +72,7 @@ main {
   left: 160px;
   top: 0;
   width: calc(100% - 160px);
-  height: 100%;
+  height: calc(100% - 60px);
   justify-content: center;
 }
 </style>

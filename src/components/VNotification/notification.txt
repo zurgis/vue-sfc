@@ -1,0 +1,13 @@
+export interface Notification {
+  type: string
+  duration?: number
+  title?: string
+  message: string
+  id?: number
+}
+
+type - тип уведомления. (success, warning, error)
+duration - время жизни уведомления. Опционально. По умолчанию = 3с.
+title - название уведомления. Опционально.
+message - сообщение уведомления.
+id - уникальный идентификатор уведомление. Не использовать.
