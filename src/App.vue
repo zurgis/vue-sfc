@@ -1,8 +1,8 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import VNavigation from './components/VNavigation.vue'
 import { routes } from './router/routerNavigation'
+import VNavigation from './components/VNavigation.vue'
 </script>
 
 <template>

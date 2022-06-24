@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import VNotification from '../components/VNotification/VNotification.vue'
 import { useNotificationStore } from '../components/VNotification/notification'
+import VNotification from '../components/VNotification/VNotification.vue'
+import VButton from '../components/VButton.vue'
 
 function showSuccess() {
   useNotificationStore().addNotification({
     type: 'success', 
-    //duration: 5000, 
+    duration: 50000, 
     title: 'Success', 
     message: 'Success Notification'
   })
@@ -14,8 +15,7 @@ function showSuccess() {
 function showWarning() {
   useNotificationStore().addNotification({
     type: 'warning', 
-    duration: 5000, 
-    title: 'Warning', 
+    duration: 50000, 
     message: 'Warning Notification' 
   })
 }
@@ -23,7 +23,7 @@ function showWarning() {
 function showError() {
   useNotificationStore().addNotification({
     type: 'error', 
-    duration: 5000, 
+    duration: 50000, 
     title: 'Error', 
     message: 'Error Notification' 
   })
@@ -36,9 +36,9 @@ function showError() {
   </div>
   
   <div class="notification-buttons">
-    <button type="button" @click="showSuccess">Success Notification</button>
-    <button type="button" @click="showWarning">Warning Notification</button>
-    <button type="button" @click="showError">Error Notification</button>
+    <VButton value="Success Notification" @click="showSuccess"/>
+    <VButton value="Warning Notification" @click="showWarning"/>
+    <VButton value="Error Notification" @click="showError"/>
   </div>
 </template>
 
@@ -46,7 +46,7 @@ function showError() {
 .notification {
   >.notification-wrapper {
     top: 50px;
-    left: calc(100% - 420px);
+    left: calc(100% - 320px);
   }
 }
 

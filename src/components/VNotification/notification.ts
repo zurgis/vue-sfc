@@ -1,6 +1,6 @@
 import { defineStore } from "pinia"
 
-export interface Notification {
+export interface INotification {
   type: string
   duration?: number
   title?: string
@@ -8,13 +8,13 @@ export interface Notification {
   id?: number
 }
 
-interface State {
+interface IState {
   id: number
-  items: Array<Notification>
+  items: Array<INotification>
 }
 
 export const useNotificationStore = defineStore('notification', {
-  state: (): State => ({
+  state: (): IState => ({
     id: 0,
     items: []
   }),
@@ -24,7 +24,7 @@ export const useNotificationStore = defineStore('notification', {
       this.id++
     },
 
-    addNotification(item: Notification) {
+    addNotification(item: INotification) {
       item.id = this.id
       item.duration = item.duration || 3000
 
@@ -37,11 +37,11 @@ export const useNotificationStore = defineStore('notification', {
       this.increaseId()
     },
 
-    removeNotification(item: Notification) {
+    removeNotification(item: INotification) {
       this.items = this.items.filter(notification => notification.id !== item.id)
     },
 
-    notificationDuration(item: Notification) {
+    notificationDuration(item: INotification) {
       setTimeout(() => this.removeNotification(item), item.duration)
     }
   }
