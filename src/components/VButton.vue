@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { ButtonHTMLAttributes } from 'vue'
+import VIcon from './VIcon.vue'
 
 defineProps<{
   type?: ButtonHTMLAttributes["type"]
   value?: string
-  icon?: string
+  icon?: {
+    size?: '2xs' | 'xs' | 'sm' | 'lg' | 'xl' | '2xl'
+    src: string
+  }
 }>()
 
 defineEmits<{
@@ -18,7 +22,7 @@ defineEmits<{
     :type="type || 'button'" 
     @click="$emit('click')"
   >
-    <img class="button-icon" v-if="icon" :src="icon" alt="">
+    <VIcon v-if="icon" :size="icon.size" :src="icon.src" />
 
     {{ value }}
   </button>

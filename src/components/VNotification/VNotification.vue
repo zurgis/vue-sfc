@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, PropType } from 'vue'
 import { INotification, useNotificationStore } from './notification'
 import closeImg from './icons/close.svg'
 import VButton from '../VButton.vue'
+
+const icon = { size: "xs" as const, src: closeImg }
 
 const notificationStore = useNotificationStore()
 
@@ -34,7 +36,7 @@ function close(item: INotification) {
 
         <VButton 
           class="notification-close" 
-          :icon=closeImg
+          :icon=icon
           @click="close(item)"
         />
       </div>
