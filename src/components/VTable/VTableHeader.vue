@@ -10,7 +10,10 @@ defineProps<{
 <template>
   <thead>
     <tr v-for="header in headers">
-      <th v-for="item in header" :colspan="item.colspan">
+      <th 
+        v-for="item in header" 
+        :colspan="item.colspan"
+      >
         {{ item.value }}
       </th>
     </tr>

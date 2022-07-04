@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, PropType } from 'vue'
+import { computed } from 'vue'
 import { INotification, useNotificationStore } from './notification'
 import closeImg from './icons/close.svg'
 import VButton from '../VButton.vue'
@@ -25,7 +25,10 @@ function close(item: INotification) {
         :class="item.type"
       >
         <div class="notification-content">
-          <div v-if="item.title" class="notification-title">
+          <div 
+            class="notification-title" 
+            v-if="item.title"
+          >
             {{ item.title }}
           </div>
 
@@ -36,6 +39,7 @@ function close(item: INotification) {
 
         <VButton 
           class="notification-close" 
+          appearance="icon"
           :icon=icon
           @click="close(item)"
         />
@@ -100,23 +104,7 @@ function close(item: INotification) {
   }
 
   &-close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: transparent;
-    height: 20px;
-    width: 20px;
-    margin-right: 5px;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    :deep(.button-icon) {
-      height: 12px;
-      width: 12px;
-    }
+    margin-right: 10px;
   }
 
   &-enter-from, &-leave-to {

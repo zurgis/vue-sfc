@@ -14,7 +14,10 @@ defineProps<{
 <template>
   <nav class="nav">
     <ul class="nav-ul">
-      <li class="nav-li" v-for="route in routes">
+      <li 
+        class="nav-li" 
+        v-for="route in routes"
+      >
         <router-link 
           class="nav-link"
           :to="{

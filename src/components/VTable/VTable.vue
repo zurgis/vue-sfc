@@ -39,7 +39,10 @@ function onChangeItemBody(...args: any[]) {
 <template>
   <table class="table">
     <VTableHeader :headers=headers />
-    <VTableBody :contents=contents @change="onChangeItemBody" />
+    <VTableBody 
+      :contents=contents 
+      @change="onChangeItemBody" 
+    />
     <VTableFooter :footers="footers" />
   </table>
 </template>

@@ -1,18 +1,26 @@
 <script setup lang="ts">
+import VButton from './VButton.vue'
+
 defineProps<{
   name?: string
-  icon?: string
+  icon?: {
+    size?: '2xs' | 'xs' | 'sm' | 'lg' | 'xl' | '2xl'
+    src: string
+  }
 }>()
 </script>
 
 <template>
   <div>
-    <button>
-      <img v-if="icon" :src="icon" alt="">
-      <span v-if="name">{{ name }}</span>
-    </button>
+    <VButton 
+      :icon=icon
+      :value="name"
+      @click=""
+    />
 
-    <div></div>
+    <!-- <div>
+      <VButton />
+    </div> -->
   </div>
 </template>
 

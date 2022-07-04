@@ -52,7 +52,6 @@ function showError() {
 
 .notification-buttons {
   button {
-    display: block;
     margin-top: 10px;
     width: 100px;
 
