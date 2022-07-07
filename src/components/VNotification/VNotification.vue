@@ -25,16 +25,24 @@ function close(item: INotification) {
         :class="item.type"
       >
         <div class="notification-content">
-          <div 
-            class="notification-title" 
-            v-if="item.title"
-          >
-            {{ item.title }}
-          </div>
+          <template v-if="item.title">
+            <div 
+              class="notification-title" 
+              v-if="item.title"
+            >
+              {{ item.title }}
+            </div>
 
-          <div class="notification-body">
-            {{ item.message }}
-          </div>
+            <div class="notification-body">
+              {{ item.message }}
+            </div>
+          </template>
+
+          <template v-else>
+            <div class="notification-body">
+              {{ item.message }}
+            </div>
+          </template>
         </div>
 
         <VButton 

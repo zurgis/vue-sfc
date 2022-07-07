@@ -1,11 +1,6 @@
 <script setup lang="ts">
-import VButton from '../VButton.vue'
-
 defineProps<{
-  items?: Array<{
-    value: string
-    isActive?: boolean
-  }>
+  value?: string
 }>()
 
 defineEmits<{
@@ -14,28 +9,17 @@ defineEmits<{
 </script>
 
 <template>
-  <template v-if="items">
-    <li 
-      class="list-item" 
-      v-for="item in items" 
-    >
-      <template v-if="item.isActive">
-        <VButton 
-          appearance="flat" 
-          :value="item.value" 
-          @click="$emit('click')"
-        />
-      </template>
-
-      <template v-else>
-        {{ item.value }}
-      </template>
+  <template v-if="value">
+    <li class="list-item">
+      {{ value }}
     </li>
   </template>
 
-  <li class="list-item slots">
-    <slot></slot>
-  </li>
+  <template v-else>
+    <li class="list-item">
+      <slot></slot>
+    </li>
+  </template>
 </template>
 
 <style lang="scss" scoped>
@@ -43,11 +27,5 @@ defineEmits<{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-
-  &.slots {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
 }
 </style>

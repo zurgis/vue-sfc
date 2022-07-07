@@ -24,13 +24,16 @@ defineEmits<{
     :class="appearance"
     @click="$emit('click')"
   >
-    <VIcon 
-      v-if="icon" 
-      :size="icon.size" 
-      :src="icon.src" 
-    />
+    <template v-if="icon">
+      <VIcon 
+        :size="icon.size" 
+        :src="icon.src" 
+      />
+    </template>
 
-    {{ value }}
+    <template v-else>
+      {{ value }}
+    </template>
   </button>
 </template>
 

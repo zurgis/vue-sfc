@@ -15,7 +15,13 @@ const items = [
     <VList :items="items">
       <VListItem>
         <VButton :value="'Button1 Button1 Button1'" />
+      </VListItem>
+
+      <VListItem>
         <VButton class="flat" :value="'Button2'" />
+      </VListItem>
+
+      <VListItem>
         <VButton class="outline" :value="'Button3'" />
       </VListItem>
     </VList>

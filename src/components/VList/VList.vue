@@ -4,15 +4,34 @@ import VListItem from './VListItem.vue'
 defineProps<{
   items?: Array<{
     value: string
+    isActive?: boolean
   }>
 }>()
+
+const emit = defineEmits<{
+  (event: 'click'): void
+}>()
+
+function onClickItem() {
+  emit('click')
+}
 </script>
 
 <template>
   <ul class="list">
-    <VListItem :items="items" />
+    <template v-if="items">
+      <VListItem 
+        v-for="item in items"
+        :value="item.value"
+        :is-active="item.isActive"
+      />
+      
+      <slot></slot>
+    </template>
 
-    <slot></slot>
+    <template v-else>
+      <slot></slot>
+    </template>
   </ul>
 </template>
 
@@ -21,7 +40,5 @@ defineProps<{
   list-style-type: none;
   margin: 0;
   padding: 0;
-  border-radius: 5px;
-  border: 1px solid;
 }
 </style>

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import VList from './VList/VList.vue'
+import VListItem from './VList/VListItem.vue'
+
 defineProps<{
   routes: Array<{
     label: string
@@ -13,11 +16,8 @@ defineProps<{
 
 <template>
   <nav class="nav">
-    <ul class="nav-ul">
-      <li 
-        class="nav-li" 
-        v-for="route in routes"
-      >
+    <VList>
+      <VListItem v-for="route in routes">
         <router-link 
           class="nav-link"
           :to="{
@@ -27,15 +27,10 @@ defineProps<{
         >
           {{ route.label }}
         </router-link>
-      </li>
-    </ul>
+      </VListItem>
+    </VList>
   </nav>
 </template>
 
 <style lang="scss" scoped>
-.nav-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
 </style>
