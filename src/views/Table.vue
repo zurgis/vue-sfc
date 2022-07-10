@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import VTable from '../components/VTable/VTable.vue'
+import VButton from '../components/VButton.vue'
 
 const headers = [
   [
-    { colspan: 4, value: 'Column1' },
+    { colspan: 5, value: 'Column1' },
   ],
   [
     { value: 'Content1' },
     { value: 'Content2' },
     { value: 'Content3' },
-    { value: 'Content4' }
+    { value: 'Content4' },
+    { value: 'Actions' }
   ]
 ]
 
@@ -72,7 +74,18 @@ function onValueChange(identifier: number | string, value: string, title?: strin
       :contents="contents" 
       :footers="footers" 
       @change-item-body="onValueChange"
-    />
+    >
+      <template #actions>
+        <VButton 
+          :appearance="'flat'"
+          :value="'Edit'"
+        />
+        <VButton 
+          :appearance="'flat'"
+          :value="'Delete'"
+        />
+      </template>
+    </VTable>
   </div>
 </template>
 

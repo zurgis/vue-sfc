@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import moreHorizImg from './icons/more_horiz.svg'
 import VInput from '../VInput.vue'
+import VDropdown from '../VDropdown.vue'
 
 defineProps<{
   contents: Array<{
@@ -18,6 +20,8 @@ defineProps<{
 const emit = defineEmits<{
   (event: 'change', ...args: any[]): void
 }>()
+
+const icon = { size: "lg" as const, src: moreHorizImg }
 
 function onChangeItemBody(...args: any[]) {
   emit('change', ...args)
@@ -46,9 +50,23 @@ function onChangeItemBody(...args: any[]) {
           </div>
         </td>
       </template>
+
+      <div class="actions">
+        <VDropdown 
+          :appearance="'icon'" 
+          :icon="icon"
+        >
+          <slot name="actions" />
+        </VDropdown>
+      </div>
     </tr>
   </tbody>
 </template>
 
 <style lang="scss" scoped>
+.actions {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
 </style>

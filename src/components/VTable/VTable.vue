@@ -42,7 +42,11 @@ function onChangeItemBody(...args: any[]) {
     <VTableBody 
       :contents=contents 
       @change="onChangeItemBody" 
-    />
+    >
+      <template #actions>
+        <slot name="actions" />
+      </template>
+    </VTableBody>
     <VTableFooter :footers="footers" />
   </table>
 </template>

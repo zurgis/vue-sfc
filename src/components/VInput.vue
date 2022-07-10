@@ -37,12 +37,12 @@ defineEmits<{
   text-align: center;
 
   &:hover {
-    background-color: #c5c5c5;
+    background-color: #0000000a;
   }
 
   &:focus {
     outline: none;
-    border: 2px solid #c5c5c5;
+    border: 2px solid #0000000a;
   }
 }
 </style>
