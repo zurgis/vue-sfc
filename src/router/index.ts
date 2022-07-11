@@ -5,6 +5,7 @@ import Notification from '../views/Notification.vue'
 import Icon from '../views/Icon.vue'
 import Dropdown from '../views/Dropdown.vue'
 import List from '../views/List.vue'
+import Search from '../views/Search.vue'
 
 const routes = [
   { path: '/', name: 'HelloWorld', component: HelloWorld },
@@ -12,7 +13,8 @@ const routes = [
   { path: '/notification', name: 'Notification', component: Notification },
   { path: '/icon', name: 'Icon', component: Icon },
   { path: '/dropdown', name: 'Dropdown', component: Dropdown },
-  { path: '/list', name: 'List', component: List }
+  { path: '/list', name: 'List', component: List },
+  { path: '/search', name: 'Search', component: Search }
 ]
 
 export const router = createRouter({

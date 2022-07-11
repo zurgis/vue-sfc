@@ -7,7 +7,7 @@ defineProps<{
   headers?: Array<{
     colspan?: number
     value: string
-  }>[],
+  }>[]
 
   contents: Array<{
     rowspan?: number
@@ -25,10 +25,12 @@ defineProps<{
     rowspan?: number
     value: string
   }>[]
+
+  isEnableActions?: boolean
 }>()
 
 const emit = defineEmits<{
-  (event: 'changeItemBody', ...args: any[]): void
+  (e: 'changeItemBody', ...args: any[]): void
 }>()
 
 function onChangeItemBody(...args: any[]) {
@@ -41,6 +43,7 @@ function onChangeItemBody(...args: any[]) {
     <VTableHeader :headers=headers />
     <VTableBody 
       :contents=contents 
+      :is-enable-actions="isEnableActions"
       @change="onChangeItemBody" 
     >
       <template #actions>

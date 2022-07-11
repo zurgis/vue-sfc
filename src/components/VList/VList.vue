@@ -9,7 +9,7 @@ defineProps<{
 }>()
 
 const emit = defineEmits<{
-  (event: 'click'): void
+  (e: 'click'): void
 }>()
 
 function onClickItem() {

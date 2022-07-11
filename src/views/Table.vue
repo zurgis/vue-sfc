@@ -73,6 +73,7 @@ function onValueChange(identifier: number | string, value: string, title?: strin
       :headers="headers" 
       :contents="contents" 
       :footers="footers" 
+      :is-enable-actions="true"
       @change-item-body="onValueChange"
     >
       <template #actions>

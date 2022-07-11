@@ -8,7 +8,7 @@ defineProps<{
 
 defineEmits<{
   (
-    event: 'change',
+    e: 'change',
     identifier: number | string, 
     value: string, 
     title?: string

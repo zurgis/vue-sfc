@@ -4,5 +4,6 @@ export const routes = [
   { label: 'Notification', name: 'Notification' },
   { label: 'Icon', name: 'Icon' },
   { label: 'Dropdown', name: 'Dropdown' },
-  { label: 'List', name: 'List' }
+  { label: 'List', name: 'List' },
+  { label: 'Search', name: 'Search' }
 ]

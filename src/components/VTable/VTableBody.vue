@@ -15,10 +15,12 @@ defineProps<{
       placeholder?: string
     }
   }>[]
+
+  isEnableActions?: boolean
 }>()
 
 const emit = defineEmits<{
-  (event: 'change', ...args: any[]): void
+  (e: 'change', ...args: any[]): void
 }>()
 
 const icon = { size: "lg" as const, src: moreHorizImg }
@@ -33,7 +35,7 @@ function onChangeItemBody(...args: any[]) {
     <tr v-for="items in contents">
       <template v-for="item in items">
         <td :rowspan="item.rowspan">
-          <div v-if="item.isActive && item.editor">
+          <div v-if="!isEnableActions && item.isActive && item.editor">
             <template v-if="item.editor.type === 'text'">
               <VInput
                 :title="item.editor.title"
@@ -51,14 +53,16 @@ function onChangeItemBody(...args: any[]) {
         </td>
       </template>
 
-      <div class="actions">
-        <VDropdown 
-          :appearance="'icon'" 
-          :icon="icon"
-        >
-          <slot name="actions" />
-        </VDropdown>
-      </div>
+      <template v-if="isEnableActions">
+        <td class="actions">
+          <VDropdown 
+            :appearance="'icon'" 
+            :icon="icon"
+          >
+            <slot name="actions" />
+          </VDropdown>
+        </td>
+      </template>
     </tr>
   </tbody>
 </template>

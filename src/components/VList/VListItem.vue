@@ -4,7 +4,7 @@ defineProps<{
 }>()
 
 defineEmits<{
-  (event: 'click'): void
+  (e: 'click'): void
 }>()
 </script>
 
