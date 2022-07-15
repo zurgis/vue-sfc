@@ -1,0 +1,2 @@
+https://codesandbox.io/s/9440e?file=/src/App.vue
+https://madewithvuejs.com/vue-js-paginate

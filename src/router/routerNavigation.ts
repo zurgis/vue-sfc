@@ -5,5 +5,6 @@ export const routes = [
   { label: 'Icon', name: 'Icon' },
   { label: 'Dropdown', name: 'Dropdown' },
   { label: 'List', name: 'List' },
-  { label: 'Search', name: 'Search' }
+  { label: 'Search', name: 'Search' },
+  { label: 'Pagination', name: 'Pagination' }
 ]
