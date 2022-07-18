@@ -7,6 +7,7 @@ import Dropdown from '../views/Dropdown.vue'
 import List from '../views/List.vue'
 import Search from '../views/Search.vue'
 import Pagination from '../views/Pagination.vue'
+import Dialog from '../views/Dialog.vue'
 
 const routes = [
   { path: '/', name: 'HelloWorld', component: HelloWorld },
@@ -16,7 +17,8 @@ const routes = [
   { path: '/dropdown', name: 'Dropdown', component: Dropdown },
   { path: '/list', name: 'List', component: List },
   { path: '/search', name: 'Search', component: Search },
-  { path: '/pagination', name: 'Pagination', component: Pagination }
+  { path: '/pagination', name: 'Pagination', component: Pagination },
+  { path: '/dialog', name: 'Dialog', component: Dialog }
 ]
 
 export const router = createRouter({
