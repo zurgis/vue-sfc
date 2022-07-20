@@ -8,6 +8,7 @@ import List from '../views/List.vue'
 import Search from '../views/Search.vue'
 import Pagination from '../views/Pagination.vue'
 import Dialog from '../views/Dialog.vue'
+import Datepicker from '../views/Datepicker.vue'
 
 const routes = [
   { path: '/', name: 'HelloWorld', component: HelloWorld },
@@ -18,7 +19,8 @@ const routes = [
   { path: '/list', name: 'List', component: List },
   { path: '/search', name: 'Search', component: Search },
   { path: '/pagination', name: 'Pagination', component: Pagination },
-  { path: '/dialog', name: 'Dialog', component: Dialog }
+  { path: '/dialog', name: 'Dialog', component: Dialog },
+  { path: '/datepicker', name: 'Datepicker', component: Datepicker }
 ]
 
 export const router = createRouter({

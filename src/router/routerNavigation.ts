@@ -7,5 +7,6 @@ export const routes = [
   { label: 'List', name: 'List' },
   { label: 'Search', name: 'Search' },
   { label: 'Pagination', name: 'Pagination' },
-  { label: 'Dialog', name: 'Dialog' }
+  { label: 'Dialog', name: 'Dialog' },
+  { label: 'Datepicker', name: 'Datepicker' }
 ]
