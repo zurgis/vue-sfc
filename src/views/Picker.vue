@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import VDatepicker from '../components/VDatepicker/VDatepicker.vue'
+import VMonthpicker from '../components/VDatepicker/VMonthpicker.vue'
 
 function getSelectedItems(selected: number[]) {
   console.info(selected)
@@ -15,6 +16,13 @@ function getSelectedItems(selected: number[]) {
       @click="getSelectedItems" 
     />
   </div>
+
+  <div>
+    <VMonthpicker
+      :year="2022"
+      :month="6"
+    />
+    </div>
 </template>
 
 <style lang="ts" scoped>
