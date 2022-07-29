@@ -9,6 +9,7 @@ import Search from '../views/Search.vue'
 import Pagination from '../views/Pagination.vue'
 import Dialog from '../views/Dialog.vue'
 import Picker from '../views/Picker.vue'
+import Select from '../views/Select.vue'
 
 const routes = [
   { path: '/', name: 'HelloWorld', component: HelloWorld },
@@ -20,7 +21,8 @@ const routes = [
   { path: '/search', name: 'Search', component: Search },
   { path: '/pagination', name: 'Pagination', component: Pagination },
   { path: '/dialog', name: 'Dialog', component: Dialog },
-  { path: '/picker', name: 'Picker', component: Picker }
+  { path: '/picker', name: 'Picker', component: Picker },
+  {  path: '/select', name: 'Select', component: Select }
 ]
 
 export const router = createRouter({

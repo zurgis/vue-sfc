@@ -8,5 +8,6 @@ export const routes = [
   { label: 'Search', name: 'Search' },
   { label: 'Pagination', name: 'Pagination' },
   { label: 'Dialog', name: 'Dialog' },
-  { label: 'Picker', name: 'Picker' }
+  { label: 'Picker', name: 'Picker' },
+  { label: 'Select', name: 'Select' }
 ]
